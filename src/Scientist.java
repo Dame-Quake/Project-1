@@ -1,3 +1,4 @@
+package src;
 public class Scientist extends User{
     public Scientist(String name){
         this.name = name;

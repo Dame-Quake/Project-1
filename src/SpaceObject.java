@@ -1,3 +1,4 @@
+package src;
 public abstract class SpaceObject {
     private String recordID;
     private String name;

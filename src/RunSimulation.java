@@ -1,3 +1,4 @@
+package src;
 public class RunSimulation {
     private MissionControl control;
     private boolean running;

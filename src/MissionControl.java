@@ -1,3 +1,4 @@
+package src;
 import java.util.*;
 public class MissionControl {
     private List<SpaceObject> objects;
