@@ -12,7 +12,5 @@ public abstract class SpaceObject {
     private int daysOld;
     private int conjunctionCount;
 
-    public String getInfo(){
-        return "Null";
-    }
+    public abstract String getInfo();  
 }
