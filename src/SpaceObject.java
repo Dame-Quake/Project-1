@@ -1,16 +1,16 @@
 package src;
 public abstract class SpaceObject {
-    private String recordID;
-    private String name;
-    private String country;
-    private String orbitType;
-    private int launchYear;
-    private String launchSite;
-    private double longitude;
-    private double avgLongitude;
-    private String geohash;
-    private int daysOld;
-    private int conjunctionCount;
+    protected String recordID;
+    protected String name;
+    protected String country;
+    protected String orbitType;
+    protected int launchYear;
+    protected String launchSite;
+    protected double longitude;
+    protected double avgLongitude;
+    protected String geohash;
+    protected int daysOld;
+    protected int conjunctionCount;
 
     public abstract String getInfo();  
 }
