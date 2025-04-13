@@ -1,7 +1,7 @@
 package src;
 import java.util.*;
 /**
- * @author John CHanvarria Damian Villarreal 
+ * @author Jorge Chavarria Damian Villarreal 
  * @version 1.0
  * @since 2025-04-9
  * The {@code MissionControl} class manages the coordination of space object tracking,
