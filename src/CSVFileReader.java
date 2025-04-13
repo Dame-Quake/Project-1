@@ -8,7 +8,7 @@ package src;
  * and analysis within the {@link MissionControl} system.
  * </p>
  *
- * @author John Chavarria, Damian Villarreal
+ * @author Jorge Chavarria, Damian Villarreal
  * @version 1.0
  * @since 2025-04-12
  */
