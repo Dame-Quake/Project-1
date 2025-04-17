@@ -48,8 +48,9 @@ public class MissionControl {
      * @return the type of user as a {@code String}
      */
     public String getUserType(){
-        return null;
-    }
+        return currentUser != null ? currentUser.getRole() : "Unknown";
+        }
+
     /**Logs the user's activity to the appropriate log file */
     public void logActivity(){}
 
