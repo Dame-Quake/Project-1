@@ -63,7 +63,7 @@ public class RunSimulation {
         while(running){
             menuHandler.printMenuOptions();
             String input = scanner.nextLine();
-            logger.log("User input: " + input);
+            logger.log("User " + currentUser.getName() + " (" + currentUser.getRole() + ") " +"input: " + input);
             menuHandler.handleUserChoice(input);
         }
         System.out.println("Exiting simulation. Thanks Come Again. Goodbye!");
