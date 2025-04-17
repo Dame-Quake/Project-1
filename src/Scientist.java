@@ -7,10 +7,10 @@ public class Scientist extends User{
     /**
      * Constructs a Scientist with the given username.
      *
-     * @param name The scientist's username.
+     * @param username The scientist's username.
      */
-    public Scientist(String name){
-        super(name, "Scientist");
+    public Scientist(String username){
+        super(username, "Scientist");
     }
 
     /**
