@@ -40,18 +40,30 @@ public class RunSimulation {
         currentUser = User.identifyUser();
         Role role = Role.fromString(currentUser.getRole());
         //can implement user validation here with a simple if statement
-        if(role == null || role != Role.SCIENTIST) {
-            System.out.println("Invalid user role. Other roles are under construction.");
-            return;
-        }
+        // if(role == null || role != Role.SCIENTIST) {
+        //     System.out.println("Invalid user role. Other roles are under construction.");
+        //     return;
+        // }
         logger.log("User logged in: "+ currentUser.getName() + " (" + currentUser.getRole() + ")");
+        //can implement a switch case for handilng different menu options to users
         if(role == Role.SCIENTIST) {
             control.setCurrentUser(currentUser);
             this.menuHandler = new ScientistMenuHandler(control, () -> running = false);
             
-        } else {
-            System.out.println("Role not implemented yet. Please try again later.");
-            return;
+        } 
+        // else if(role == Role.SPACE_AGENCY_REPRESENTATIVE){
+        //    //menu implementation goes here
+        // }
+        // else if(role == Role.POLICYMAKER){
+        //     //menu implementation goes here
+        // }
+        // else if(role == Role.ADMIN){
+        //     //menu implementation goes here
+        //     break;
+        // }
+        else {
+            System.out.println("Role is under construction.\nPlease try again later.\n____________________\n");
+            startSimulation();
         }
         runMenuLoop();
         

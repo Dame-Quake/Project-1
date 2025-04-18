@@ -13,6 +13,7 @@ public class ScientistMenuHandler implements UserMenuHandler {
     }
     @Override
     public void printMenuOptions() {
+        System.out.println("___________________________________");
         System.out.println("Scientist Menu Options:");
         System.out.println("1. Track Space Objects by Type");
         System.out.println("2. Access Orbital Status of Space Objects"); 
