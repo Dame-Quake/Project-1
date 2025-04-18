@@ -1,5 +1,6 @@
 package src;
 import java.util.*;
+import java.io.*;
 /**
  * @author Jorge Chavarria Damian Villarreal 
  * @version 1.0
@@ -11,13 +12,14 @@ import java.util.*;
 public class MissionControl {
     
     /** List of space objects being tracked.*/
-    private List<SpaceObject> objects;
+    private List<SpaceObject> objects = new ArrayList<>();
     /** The current user of the system.*/
     private User currentUser;
     /** The path to the log file.*/
-    private String logFilePath;
+    private String logFilePath = "log.txt";
     /** The tracking system used for tracking space objects.*/
     private TrackingSystem trackingSystem;
+
     /**
      * Constructs a new {@code MissionControl} instance with the provided tracking system.
      *
@@ -48,10 +50,17 @@ public class MissionControl {
      * @return the type of user as a {@code String}
      */
     public String getUserType(){
-        return null;
+        return currentUser != null ? currentUser.getRole() : "Unknown";
     }
     /**Logs the user's activity to the appropriate log file */
-    public void logActivity(){}
+    public void logActivity(String action){
+        try (FileWriter fw = new FileWriter(logFilePath, true);
+             PrintWriter pw = new PrintWriter(fw)) {
+            pw.println("[" + new Date() + "] " + action);
+        } catch (IOException e) {
+            System.out.println("Error writing to log: " + e.getMessage());
+        }
+    }
 
 
 }
