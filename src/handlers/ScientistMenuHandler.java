@@ -6,6 +6,9 @@ import java.util.Map;
 
 import src.MissionControl;
 
+/**
+ * Handles the menu interaction logic for Scientist users.
+ */
 public class ScientistMenuHandler implements UserMenuHandler {
     private MissionControl control;
     private Runnable exitCallback;
@@ -19,12 +22,21 @@ public class ScientistMenuHandler implements UserMenuHandler {
     };
 
     //javadoc comment goes here
+    /**
+     * Constructs a new ScientistMenuHandler.
+     *
+     * @param control the mission control instance
+     * @param exitCallback the callback to execute when exiting the menu
+     */
     public ScientistMenuHandler(MissionControl control, Runnable exitCallback) {
         this.control = control;
         this.exitCallback = exitCallback;
     }
 
     //javadoc comment goes here
+    /**
+     * Displays the menu options available to the Scientist user.
+     */
     @Override
     public void printMenuOptions() {
         for (String line : MENU_OPTIONS) {
@@ -42,6 +54,11 @@ public class ScientistMenuHandler implements UserMenuHandler {
         }
     );
         //javadoc comment goes here
+    /**
+     * Handles the user's selected option from the menu.
+     *
+     * @param input the user's input
+     */
     @Override
     public void handleUserChoice(String input) {
             scientistActions.getOrDefault(input, () -> 

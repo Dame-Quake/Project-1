@@ -23,21 +23,24 @@ public class RunSimulation {
     private UserMenuHandler menuHandler;
 
 
-    /** Main method to initialize the simulation environment and starts the simulation */
-    public static void main(String[] args){
+    /** Main method to initialize the simulation environment and start the simulation */
+    public static void main(String[] args) {
         RunSimulation sim = new RunSimulation();
         sim.startSimulation();
     }
-        
+
     /**
      * Constructs a new {@code RunSimulation} instance and initializes the mission control system.
      */
-    public RunSimulation(){
+    public RunSimulation() {
         this.control = new MissionControl(new TrackingSystem());
         this.logger = new LogFile("logs/logfile.txt");
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Starts the user interaction and role selection process.
+     */
     private void startSimulation() {
         inSession = true; // gets user back to role selection if they want to change roles
         while (inSession) {
@@ -79,16 +82,18 @@ public class RunSimulation {
         
     }
     
-    /** Displays the main menu for user interaction */
-    private void runMenuLoop(){
+    /** Displays the main menu for user interaction 
+     *  Displays the main interaction menu and delegates input handling.
+     */
+    private void runMenuLoop() {
         running = true;
-        while(running){
+        while (running) {
             menuHandler.printMenuOptions();
+            System.out.print("Enter your choice: ");
             String input = scanner.nextLine();
-            logger.log("User " + currentUser.getName() + " (" + currentUser.getRole() + ") " +"input: " + input);
+            logger.log("User " + currentUser.getName() + " (" + currentUser.getRole() + ") input: " + input);
             menuHandler.handleUserChoice(input);
         }
-        // System.out.println("Exiting simulation. Thanks Come Again. Goodbye!");
+        System.out.println("Exiting simulation. Thanks for using the system. Goodbye!");
     }
-
 }
