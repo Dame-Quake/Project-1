@@ -66,9 +66,59 @@ public class MissionControl {
 
     /**Tracks all registered space objects in the system */
     public void trackObjects(){
+        Scanner scanner = new Scanner(System.in);
         logger.logActivity("Tracking all registered space objects...");
-        //implementation of tracking logic
+        
+        while (true) {
+        System.out.println("\nSelect object type to track:");
+        System.out.println("1. Rocket Body");
+        System.out.println("2. Debris");
+        System.out.println("3. Payload");
+        System.out.println("4. Unknown");
+        System.out.println("5. Back");
+        System.out.print("Choice: ");
+        String choice = scanner.nextLine().trim();
+
+        String type;
+        switch (choice) {
+            case "1":
+                type = "ROCKET BODY";
+                break;
+            case "2":
+                type = "DEBRIS";
+                break;
+            case "3":
+                type = "PAYLOAD";
+                break;
+            case "4":
+                type = "UNKNOWN";
+                break;
+            case "5":
+                logger.log("Scientist returned to previous menu from 'Track Objects'.");
+                return;
+            default:
+                System.out.println("Invalid option. Please try again.");
+                continue;
+        }
+
+        List<SpaceObject> filtered = trackingSystem.trackByType(type);
+
+        if (filtered.isEmpty()) {
+            System.out.println("No objects found of type: " + type);
+            logger.log("Scientist searched for " + type + " objects — none found.");
+        } else {
+            System.out.println("\n--- " + type + " Objects ---");
+            for (SpaceObject obj : filtered) {
+                System.out.printf(
+                    "ID: %s | Name: %s | Country: %s | Orbit: %s | Year: %d | Site: %s | Lon: %.2f | AvgLon: %.2f | Geohash: %s | Days Old: %d%n",
+                    obj.recordID, obj.name, obj.country, obj.orbitType, obj.launchYear, obj.launchSite,
+                    obj.longitude, obj.avgLongitude, obj.geohash, obj.daysOld
+                );
+            }
+            logger.log("Scientist viewed " + filtered.size() + " " + type + " object(s).");
+        }
     }
+}
 
     /**
      * Retrieves the type of the currently active user
