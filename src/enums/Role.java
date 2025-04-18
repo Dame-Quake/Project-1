@@ -6,18 +6,38 @@ public enum Role {
     POLICYMAKER,
     ADMIN;
 
-    public static Role fromString(String role) {
-        switch (role.toUpperCase()) {
+    public static Role fromInput(String input) {
+        switch (input.trim()) {
+            case "1":
             case "SCIENTIST":
                 return SCIENTIST;
+            case"2":
             case "SPACE_AGENCY_REPRESENTATIVE":
                 return SPACE_AGENCY_REPRESENTATIVE;
+            case "3":
             case "POLICYMAKER":
                 return POLICYMAKER;
+            case "4":
             case "ADMIN":
                 return ADMIN;
             default:
-                throw new IllegalArgumentException("Unknown role: " + role);
+                return null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        switch (this) {
+            case SCIENTIST:
+                return "Scientist";
+            case SPACE_AGENCY_REPRESENTATIVE:
+                return "Space Agency Representative";
+            case POLICYMAKER:
+                return "Policymaker";
+            case ADMIN:
+                return "Admin";
+            default:
+                return "Unknown Role";
         }
     }
     

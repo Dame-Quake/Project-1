@@ -33,21 +33,36 @@ public class MissionControl {
         this.currentUser = user;
     }
 
-    /**Initiates object tracking based on their types using the tracking system */
+    /**Scientist option: Initiates object tracking based on their types using the tracking system */
     public void performTracking(){
+        System.out.println("Tracking objects by type... (not yet implemented)");
         trackingSystem.trackByType();
     }
-    /**Loads external or persisted data into the mission control system*/
-    public void loadData(){}
 
     /**Tracks all registered space objects in the system */
     public void trackObjects(){}
+
+    /**Scientist option: Initiates access orbit status of space objects */
+    public void accessOrbitalStatus() {
+        System.out.println("Accessing orbital status... (not yet implemented)");
+        // TODO: implement actual logic
+    }
+    
+
+    /**Loads external or persisted data into the mission control system*/
+    public void loadData(){}
+
 
     /**
      * Retrieves the type of the currently active user
      * @return the type of user as a {@code String}
      */
     public String getUserType(){
+        return currentUser != null ? currentUser.getRole() : "Unknown";
+    }
+
+    /**Retrieves the type of the current object user is interested in*/
+    public String getObjectType(SpaceObject object){
         return null;
     }
     /**Logs the user's activity to the appropriate log file */

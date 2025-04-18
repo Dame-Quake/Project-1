@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class User {
     protected String username;
     private String role;
+    private static String savedUsername = null;
 
     public User(String username, String role){
         this.username = username;
@@ -12,36 +13,48 @@ public class User {
     }
 
     public String getName() {
-        return username;
+        return username ;
     }
 
     public String getRole() {
         return role;
     }
 
-    public static User identifyUser() {
+    public static String[] promptForRoleInput(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter your role \n1: Scientist\n2: Space Agency Representative\n3: Policymaker\n4: Admin\nEnter: ");
-        String role = scanner.nextLine();
-
-        switch (role) {
-            //implementation for the rest of the roles, we'll do later in the project
-
-            case "1":
-                return new Scientist(name);
-            case "2":
-                return new SpaceAgencyRepresentative(name);
-            case "3":
-                return new PolicyMaker(name);
-            case "4":
-                return new Admin(name);
-            default:
-                throw new IllegalArgumentException("Invalid role: " + role);
-                
+        if(savedUsername == null||savedUsername.isBlank()){ 
+            while(true){
+                System.out.println("____________________________________");
+                System.out.println("Enter your name or enter (x) to exit the program ");
+                savedUsername = scanner.nextLine();
+                if (savedUsername.equalsIgnoreCase("x")) {
+                    return new String[]{"x",""};
+                }
+                if (savedUsername.isBlank()) {
+                    System.out.println("Username cannot be blank. Please try again.");
+                } 
+                else {
+                    break; // valid name entered
+                }
+            }
         }
+
+        System.out.print("Enter your role. Username: "+ savedUsername +//
+        " \n1: Scientist\n" +
+            "2: Space Agency Representative\n" +
+            "3: Policymaker\n" +
+            "4: Admin\n" +
+            "(x to exit simulation)\n" +
+            "Enter: ");
+        
+        String roleInput = scanner.nextLine();
+
+        if (roleInput.equalsIgnoreCase("x")) {
+            return new String[]{"x", ""};
+        }
+
+        return new String[]{savedUsername, roleInput};
+        
     }
 }
 

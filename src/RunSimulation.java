@@ -14,12 +14,14 @@ import java.util.Scanner;
  * @version 1.0.1
  */
 public class RunSimulation {
+    private boolean running; // Indicates if the simulation is running
+    private boolean inSession; // Indicates if the user is in a session
     private MissionControl control;
-    private boolean running;
     private User currentUser;
     private LogFile logger;
     private Scanner scanner;
     private UserMenuHandler menuHandler;
+
 
     /** Main method to initialize the simulation environment and starts the simulation */
     public static void main(String[] args){
@@ -37,35 +39,43 @@ public class RunSimulation {
     }
 
     private void startSimulation() {
-        currentUser = User.identifyUser();
-        Role role = Role.fromString(currentUser.getRole());
-        //can implement user validation here with a simple if statement
-        // if(role == null || role != Role.SCIENTIST) {
-        //     System.out.println("Invalid user role. Other roles are under construction.");
-        //     return;
-        // }
-        logger.log("User logged in: "+ currentUser.getName() + " (" + currentUser.getRole() + ")");
-        //can implement a switch case for handilng different menu options to users
-        if(role == Role.SCIENTIST) {
-            control.setCurrentUser(currentUser);
-            this.menuHandler = new ScientistMenuHandler(control, () -> running = false);
-            
-        } 
-        // else if(role == Role.SPACE_AGENCY_REPRESENTATIVE){
-        //    //menu implementation goes here
-        // }
-        // else if(role == Role.POLICYMAKER){
-        //     //menu implementation goes here
-        // }
-        // else if(role == Role.ADMIN){
-        //     //menu implementation goes here
-        //     break;
-        // }
-        else {
-            System.out.println("Role is under construction.\nPlease try again later.\n____________________\n");
-            startSimulation();
+        inSession = true; // gets user back to role selection if they want to change roles
+        while (inSession) {
+            String input[] = User.promptForRoleInput();
+            String username = input[0];
+            String roleInput = input[1];
+
+            // Check if the user wants to exit the simulation
+            if(username.equalsIgnoreCase("x")) {
+                System.out.println("Exiting simulation. Thanks for using the system. Goodbye!");
+                return; // Exit the simulation
+            }
+
+            currentUser = UserFactory.createUser(username, roleInput);
+            Role role = Role.fromInput(roleInput);
+
+            if(role == null) {
+                System.out.println("Invalid role input. Try Again.");
+                continue;
+            }
+        
+            logger.log("User logged in: " + currentUser.getName() + " (" + currentUser.getRole() + ")");
+        
+            switch (roleInput) {
+                case "1":
+                    control.setCurrentUser(currentUser);
+                    this.menuHandler = new ScientistMenuHandler(control, () -> {
+                        // System.out.println("Returning to Main Menu...");
+                        running = false; // Exit the menu loop
+                    });
+                    runMenuLoop();
+                    break;
+        
+                // Other roles will me implemented later
+                default:
+                    System.out.println("This role is under construction.\nTry again later.");
+            }
         }
-        runMenuLoop();
         
     }
     
@@ -78,7 +88,7 @@ public class RunSimulation {
             logger.log("User " + currentUser.getName() + " (" + currentUser.getRole() + ") " +"input: " + input);
             menuHandler.handleUserChoice(input);
         }
-        System.out.println("Exiting simulation. Thanks Come Again. Goodbye!");
+        // System.out.println("Exiting simulation. Thanks Come Again. Goodbye!");
     }
 
 }
