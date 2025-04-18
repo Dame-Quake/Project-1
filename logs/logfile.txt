@@ -22,3 +22,12 @@
 [2025-04-17 20:35:57] User input: 3
 [2025-04-17 20:36:00] User input: 0
 [2025-04-17 20:37:00] User logged in: deft (Space_Agency_Representative)
+[2025-04-17 23:05:46] User logged in: Jorge (Scientist)
+[2025-04-17 23:06:15] User Jorge (Scientist) input: 1
+[2025-04-17 23:06:32] User Jorge (Scientist) input: 1
+[2025-04-17 23:06:40] User Jorge (Scientist) input: 1
+[2025-04-17 23:06:47] User Jorge (Scientist) input: 2
+[2025-04-17 23:06:58] User Jorge (Scientist) input: 1
+[2025-04-17 23:07:04] User Jorge (Scientist) input: 1
+[2025-04-17 23:07:07] User Jorge (Scientist) input: 2
+[2025-04-17 23:07:11] User Jorge (Scientist) input: 0
