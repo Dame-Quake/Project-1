@@ -37,13 +37,109 @@ public class MissionControl {
 
     /**Initiates object tracking based on their types using the tracking system */
     public void performTracking(){
-        trackingSystem.trackByType();
+        trackingSystem.trackByType("DEBRIS");
     }
     /**Loads external or persisted data into the mission control system*/
-    public void loadData(){}
+    public void loadData(){
+        String path = "rso_metrics.csv";
+        String line;
+    
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String headerLine = br.readLine(); // skip headers
+    
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split(",", -1);
+    
+                String recordID = tokens[0];
+                String satelliteName = tokens[2];
+                String country = tokens[3];
+                String orbitType = tokens[4];
+                String objectType = tokens[5];
+                int launchYear = parseInt(tokens[6]);
+                String launchSite = tokens[7];
+                double longitude = parseDouble(tokens[8]);
+                double avgLongitude = parseDouble(tokens[9]);
+                String geohash = tokens[10];
+                int daysOld = parseInt(tokens[18]);
+                int conjunctionCount = parseInt(tokens[19]);
+
+                SpaceObject obj = switch (objectType.toUpperCase()) {
+                    case "DEBRIS" -> new Debris();
+                    case "PAYLOAD" -> new Payload();
+                    case "ROCKET BODY" -> new Satellite();
+                    case "UNKNOWN" -> new Unknown();
+                    default -> null;
+                };
+
+                if (obj != null) {
+                    obj.recordID = recordID;
+                    obj.name = satelliteName;
+                    obj.country = country;
+                    obj.orbitType = orbitType;
+                    obj.launchYear = launchYear;
+                    obj.launchSite = launchSite;
+                    obj.longitude = longitude;
+                    obj.avgLongitude = avgLongitude;
+                    obj.geohash = geohash;
+                    obj.daysOld = daysOld;
+                    obj.conjunctionCount = conjunctionCount;
+
+                    objects.add(obj);
+                }
+            }
+
+            System.out.println("Data loaded. Objects count: " + objects.size());
+            trackingSystem.setObjects(objects); // pass to tracking system
+
+        } catch (IOException e) {
+            System.out.println("Error loading CSV: " + e.getMessage());
+        }
+    }
 
     /**Tracks all registered space objects in the system */
-    public void trackObjects(){}
+    public void trackObjects(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nSelect object type to track:");
+        System.out.println("1. Debris\n2. Payload\n3. Rocket Body\n4. Unknown\n5. Back");
+        System.out.print("Choice: ");
+        String type = switch (sc.nextLine().trim()) {
+            case "1" -> "DEBRIS";
+            case "2" -> "PAYLOAD";
+            case "3" -> "ROCKET BODY";
+            case "4" -> "UNKNOWN";
+            default -> null;
+        };
+
+        if (type == null) return;
+
+        List<SpaceObject> filtered = trackingSystem.trackByType(type);
+        for (SpaceObject obj : filtered) {
+            System.out.println(obj.getInfo());
+        }
+        logActivity(currentUser.getRole() + " tracked objects of type: " + type);
+    }
+
+    // Helper method to safely parse integers
+    private int parseInt(String val) {
+        try {
+            return Integer.parseInt(val.trim());
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    // Helper method to safely parse doubles
+    private double parseDouble(String val) {
+        try {
+            return Double.parseDouble(val.trim());
+        } catch (Exception e) {
+            return 0.0;
+        }
+    }
+
+    public List<SpaceObject> getObjects() {
+        return objects;
+    }
 
     /**
      * Retrieves the type of the currently active user
