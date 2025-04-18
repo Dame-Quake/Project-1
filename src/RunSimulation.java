@@ -76,6 +76,15 @@ public class RunSimulation {
                     break;
         
                 // Other roles will me implemented later
+                case "2":
+                    System.out.println("Space Agency Representative role is under construction.\nTry again later.");
+                    break;
+                case "3":
+                    System.out.println("Policymaker role is under construction.\nTry again later.");
+                    break;
+                case "4":
+                    System.out.println("Admin role is under construction.\nTry again later.");
+                    break;
                 default:
                     System.out.println("This role is under construction.\nTry again later.");
             }

@@ -38,7 +38,7 @@ public class User {
                 }
             }
         }
-
+        System.out.println("____________________________________");
         System.out.print("Enter your role. Username: "+ savedUsername +//
         " \n1: Scientist\n" +
             "2: Space Agency Representative\n" +
