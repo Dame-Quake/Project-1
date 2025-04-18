@@ -34,7 +34,7 @@ public class RunSimulation {
      */
     public RunSimulation() {
         this.control = new MissionControl(new TrackingSystem());
-        this.logger = new LogFile("logs/logfile.txt");
+        this.logger = new LogFile("logs\\logfile.txt");
         this.scanner = new Scanner(System.in);
     }
 
@@ -62,7 +62,7 @@ public class RunSimulation {
                 continue;
             }
         
-            logger.log("User logged in: " + currentUser.getName() + " (" + currentUser.getRole() + ")");
+            logger.logActivity("User logged in: " + currentUser.getName() + " (" + currentUser.getRole() + ")");
         
             switch (roleInput) {
                 case "1":
@@ -91,7 +91,7 @@ public class RunSimulation {
             menuHandler.printMenuOptions();
             System.out.print("Enter your choice: ");
             String input = scanner.nextLine();
-            logger.log("User " + currentUser.getName() + " (" + currentUser.getRole() + ") input: " + input);
+            logger.logActivity("User " + currentUser.getName() + " (" + currentUser.getRole() + ") input: " + input);
             menuHandler.handleUserChoice(input);
         }
         System.out.println("Exiting simulation. Thanks for using the system. Goodbye!");

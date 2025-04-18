@@ -12,7 +12,7 @@ public class LogFile {
         this.filePath = filePath;
     }
 
-    public void log(String message) {
+    public void logActivity(String message) {
         try (FileWriter writer = new FileWriter(filePath, true)) {
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             writer.write("[" + timestamp + "] " + message + "\n");
