@@ -36,6 +36,14 @@ public class MissionControl {
     public void setCurrentUser(User user){
         this.currentUser = user;
     }
+    /** Injects a {@link LogFile} instance into this {@code MissionControl} object
+     * for consistent system-wide logging of user actions and events.
+     *
+     * @param logger the {@code LogFile} instance used to log system activity
+     */
+    public void setLogger(LogFile logger) {
+        this.logger = logger;
+    }
 
     /**Scientist option: Initiates object tracking based on their types using the tracking system */
     public void performTracking(){

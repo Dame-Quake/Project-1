@@ -1,2 +1,10 @@
 [2025-04-18 00:55:21] User logged in: Damian (Scientist)
 [2025-04-18 00:55:22] User Damian (Scientist) input: 1
+[2025-04-18 00:59:19] User logged in: Damian (Space_Agency_Representative)
+[2025-04-18 00:59:26] User logged in: Damian (Scientist)
+[2025-04-18 00:59:28] User Damian (Scientist) input: 1
+[2025-04-18 00:59:28] Performing tracking of space objects by type...
+[2025-04-18 00:59:31] User Damian (Scientist) input: 2
+[2025-04-18 00:59:31] Accessing orbital status of space objects...
+[2025-04-18 00:59:42] User Damian (Scientist) input: 0
+[2025-04-18 00:59:42] Return to Main menu from Scientist Menu

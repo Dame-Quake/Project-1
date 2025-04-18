@@ -35,6 +35,7 @@ public class RunSimulation {
     public RunSimulation() {
         this.control = new MissionControl(new TrackingSystem());
         this.logger = new LogFile("logs\\logfile.txt");
+        this.control.setLogger(logger);
         this.scanner = new Scanner(System.in);
     }
 
