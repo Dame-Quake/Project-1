@@ -37,7 +37,13 @@ public class MissionControl {
 
     /**Scientist option: Initiates object tracking based on their types using the tracking system */
     public void performTracking(){
-        trackingSystem.trackByType();
+        // trackingSystem.trackByType();
+    }
+    
+    /**Space Agency Representative option: Retrieves all objects in Low Earth Orbit (LEO) */
+    public Object accessOrbitalStatus() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'accessOrbitalStatus'");
     }
     /**Loads external or persisted data into the mission control system*/
     public void loadData(){}
@@ -61,6 +67,8 @@ public class MissionControl {
             System.out.println("Error writing to log: " + e.getMessage());
         }
     }
+
+    
 
 
 }

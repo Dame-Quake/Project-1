@@ -49,7 +49,7 @@ public class ScientistMenuHandler implements UserMenuHandler {
     "2", () -> control.accessOrbitalStatus(),
     "0", () -> {
             System.out.println("Returning to Main Menu...");
-            control.logActivity();
+            control.logActivity("Return to Main menu from Scientist Menu");
             exitCallback.run();
         }
     );

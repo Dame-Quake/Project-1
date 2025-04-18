@@ -2,3 +2,4 @@
 [Thu Apr 17 23:06:34 MDT 2025] Scientist tracked objects of type: PAYLOAD
 [Thu Apr 17 23:06:43 MDT 2025] Scientist tracked objects of type: ROCKET BODY
 [Thu Apr 17 23:07:06 MDT 2025] Scientist tracked objects of type: UNKNOWN
+[Fri Apr 18 00:30:44 MDT 2025] Return to Main menu from Scientist Menu
