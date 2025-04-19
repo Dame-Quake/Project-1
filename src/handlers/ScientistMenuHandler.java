@@ -18,7 +18,7 @@ public class ScientistMenuHandler implements UserMenuHandler {
         "Scientist Menu Options:",
         "1. Track Space Objects by Type",
         "2. Access Orbital Status of Space Objects",
-        "0. Back to Main Menu"
+        "x. Back to Main Menu"
     };
 
     //javadoc comment goes here
@@ -47,7 +47,7 @@ public class ScientistMenuHandler implements UserMenuHandler {
     private Map<String, Runnable> scientistActions = Map.of(
         "1", () -> control.trackObjects(),
         "2", () -> control.accessOrbitalStatus(),
-        "0", () -> {
+        "x", () -> {
                 System.out.println("Returning to Main Menu...");
                 control.logActivity("Return to Main menu from Scientist Menu");
                 exitCallback.run();

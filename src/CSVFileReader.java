@@ -59,33 +59,38 @@ public class CSVFileReader {
                     fields = extendedFields;
                 }
                 
+                //for debugging purposes
+                // System.out.println("DEBUG: Raw CSV line:");
+                // for (int i = 0; i < fields.length; i++) {
+                //     System.out.println("Field[" + i + "]: '" + fields[i] + "'");
+                // }
+                int recordID = parseIntSafe(fields[0], "recordID");
+                int noradCatID = parseIntSafe(fields[1], "norad_cat_id");
+                String satelliteName = safeTrim(fields[2], "satellite_name");
+                String country = safeTrim(fields[3], "country");
+                String approximate_orbitType = safeTrim(fields[4], "approximate_orbit_type");
+                String objectType = safeTrim(fields[5], "object_type");
+                int launchYear = parseIntSafe(fields[6], "launch_year");
+                String launchSite = safeTrim(fields[7], "launch_site");
+                Double longitude = parseDoubleSafe(fields[8], "longitude");
+                Double avgLongitude = parseDoubleSafe(fields[9], "avg_longitude");
+                String geohash = safeTrim(fields[10], "geohash");
+                String HRR_Category = safeTrim(fields[11], "HRR_Category");
+                boolean isNominated = parseBooleanSafe(fields[12], "is_nominated");
+                String nominatedAt = safeTrim(fields[13], "nominated_at");
+                boolean hasDossier = parseBooleanSafe(fields[14], "has_dossier");
+                String lastUpdatedAt = safeTrim(fields[15], "last_updated_at");
+                String justification = safeTrim(fields[16], "justification");
+                String focusedAnalysis = safeTrim(fields[17], "focused_analysis");
+                int daysOld = parseIntSafe(fields[18], "days_old");
+                int conjunctionCount = parseIntSafe(fields[19], "conjunction_count");
+                boolean isUnkObject = parseBooleanSafe(fields[20], "is_unk_object");
+                String allManeuvers = safeTrim(fields[21], "all_maneuvers");
+                String daysSinceOb = safeTrim(fields[22], "days_since_ob");
+                String recentManeuvers = safeTrim(fields[23], "recent_maneuvers");
+                String deltaV90Day = safeTrim(fields[24], "deltaV_90day");
+                boolean hasSisterDebris = parseBooleanSafe(fields[25], "has_sister_debris");
 
-                int recordID = Integer.parseInt(fields[0].trim());
-                int noradCatID = Integer.parseInt(fields[1].trim());
-                String satelliteName = fields[2].trim();
-                String country = fields[3].trim();
-                String approximate_orbitType = fields[4].trim();
-                String objectType = fields[5].trim();
-                int launchYear = Integer.parseInt(fields[6].trim());
-                String launchSite = fields[7].trim();
-                Double longitude = Double.parseDouble(fields[8].trim());
-                Double avgLongitude = Double.parseDouble(fields[9].trim());
-                String geohash = fields[10].trim();
-                String HRR_Category = fields[11].trim();
-                boolean isNominated = Boolean.parseBoolean(fields[12].trim());
-                String nominatedAt = fields[13].trim();
-                boolean hasDossier = Boolean.parseBoolean(fields[14].trim());
-                String lastUpdatedAt = fields[15].trim();
-                String justification = fields[16].trim();
-                String focusedAnalysis = fields[17].trim();
-                int daysOld = Integer.parseInt(fields[18].trim());
-                int conjunctionCount = Integer.parseInt(fields[19].trim());
-                boolean isUnkObject = Boolean.parseBoolean(fields[20].trim());
-                String allManeuvers = fields[21].trim();
-                String daysSinceOb = fields[22].trim();
-                String recentManeuvers = fields[23].trim();
-                String deltaV90Day = fields[24].trim();
-                boolean hasSisterDebris = Boolean.parseBoolean(fields[25].trim());
 
                 SpaceObject spaceObject;
                     switch (objectType.toLowerCase()){
@@ -102,6 +107,8 @@ public class CSVFileReader {
                         spaceObject = new Unknown();
                         break;
                     }
+                
+
                 
                 spaceObject.recordID = recordID;
                 spaceObject.noradCatID = noradCatID;
@@ -132,7 +139,7 @@ public class CSVFileReader {
 
                 // Add object to the categorized map
                 spaceObjectsMap
-                    .computeIfAbsent(objectType, k -> new ArrayList<>())
+                    .computeIfAbsent(objectType.toUpperCase(), k -> new ArrayList<>())
                     .add(spaceObject);
 
             }
@@ -140,10 +147,51 @@ public class CSVFileReader {
         return spaceObjectsMap;
     }
 
-
-
-
-
-
-
+    private int parseIntSafe(String s, String fieldName) {
+        // System.out.println("CALLING parseIntSafe for field: " + fieldName + " → '" + s + "'");
+        if (s == null || s.trim().isEmpty()) {
+            // System.out.println("Notice: Field [" + fieldName + "] was empty. Defaulting to 0.");
+            return 0;
+        }
+        try {
+            int result = Integer.parseInt(s.trim());
+            // System.out.println("Parsed value for " + fieldName + ": " + result);
+            return result;
+        } catch (NumberFormatException e) {
+            // System.out.println("Warning: Field [" + fieldName + "] had invalid integer: '" + s + "'. Defaulting to 0.");
+            return 0;
+        }
+    }
+    
+    
+    private double parseDoubleSafe(String s, String fieldName) {
+        if (s == null || s.trim().isEmpty()) {
+            // System.out.println("Notice: Field [" + fieldName + "] was empty. Defaulting to 0.0.");
+            return 0.0;
+        }
+        try {
+            return Double.parseDouble(s.trim());
+        } catch (NumberFormatException e) {
+            // System.out.println("Warning: Field [" + fieldName + "] had invalid double: '" + s + "'. Defaulting to 0.0.");
+            return 0.0;
+        }
+    }
+    
+    private boolean parseBooleanSafe(String s, String fieldName) {
+        if (s == null || s.trim().isEmpty()) {
+            // System.out.println("Notice: Field [" + fieldName + "] was empty. Defaulting to false.");
+            return false;
+        }
+        return s.trim().equalsIgnoreCase("true");
+    }
+    
+    private String safeTrim(String s, String fieldName) {
+        if (s == null || s.trim().isEmpty()) {
+            // System.out.println("Notice: Field [" + fieldName + "] was empty. Defaulting to empty string.");
+            return "";
+        }
+        return s.trim();
+    }
+    
+    
 }

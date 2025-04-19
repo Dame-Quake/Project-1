@@ -40,3 +40,31 @@
 [2025-04-18 17:30:58] Scientist returned to previous menu from 'Track Objects'.
 [2025-04-18 17:31:02] User damian (Scientist) input: 0
 [2025-04-18 17:31:02] Return to Main menu from Scientist Menu
+[2025-04-19 02:05:25] User logged in: damian (Scientist)
+[2025-04-19 02:05:28] User damian (Scientist) input: 2
+[2025-04-19 02:05:28] Accessing orbital status of space objects...
+[2025-04-19 02:05:31] User damian (Scientist) input: 1
+[2025-04-19 02:05:31] Tracking all registered space objects...
+[2025-04-19 02:05:34] Scientist searched for UNKNOWN objects — none found.
+[2025-04-19 02:05:39] Scientist searched for ROCKET BODY objects — none found.
+[2025-04-19 02:05:42] Scientist returned to previous menu from 'Track Objects'.
+[2025-04-19 02:05:45] User damian (Scientist) input: 0
+[2025-04-19 02:05:45] Return to Main menu from Scientist Menu
+[2025-04-19 02:10:28] User logged in: test (Scientist)
+[2025-04-19 02:10:31] User test (Scientist) input: 2
+[2025-04-19 02:10:31] Accessing orbital status of space objects...
+[2025-04-19 02:10:33] User test (Scientist) input: 1
+[2025-04-19 02:10:33] Tracking all registered space objects...
+[2025-04-19 02:10:36] Scientist searched for ROCKET BODY objects — none found.
+[2025-04-19 02:10:38] Scientist searched for DEBRIS objects — none found.
+[2025-04-19 02:10:39] Scientist searched for PAYLOAD objects — none found.
+[2025-04-19 02:10:41] Scientist returned to previous menu from 'Track Objects'.
+[2025-04-19 02:10:43] User test (Scientist) input: x
+[2025-04-19 02:10:46] User test (Scientist) input: 0
+[2025-04-19 02:10:46] Return to Main menu from Scientist Menu
+[2025-04-19 02:12:29] User logged in: dmi (Scientist)
+[2025-04-19 02:12:33] User dmi (Scientist) input: 1
+[2025-04-19 02:12:33] Tracking all registered space objects...
+[2025-04-19 02:12:38] Scientist returned to previous menu from 'Track Objects'.
+[2025-04-19 02:12:39] User dmi (Scientist) input: x
+[2025-04-19 02:12:39] Return to Main menu from Scientist Menu

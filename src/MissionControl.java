@@ -69,7 +69,7 @@ public class MissionControl {
      * @param type the type of space object to retrieve
      * @return a list of space objects of the specified type
      */
-    public List<SpaceObject> getObjectByType(String type){
+    public List<SpaceObject> getObjectsByType(String type){
         return spaceObjectsByType.getOrDefault(type.toUpperCase(), new ArrayList<>());
     }
     
