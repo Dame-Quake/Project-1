@@ -40,6 +40,8 @@ public class RunSimulation {
         try {
             CSVFileReader reader = new CSVFileReader();
             Map<String, List<SpaceObject>> loadedObjects = reader.readCSVFile();
+            System.out.println("DEBUG: Loaded object types:");
+            loadedObjects.forEach((type, list) -> System.out.println(type + ": " + list.size() + " objects"));
             this.control = new MissionControl(new TrackingSystem(), loadedObjects);
         } catch (IOException e) {
             System.err.println("Failed to load space object data: " + e.getMessage());
