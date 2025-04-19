@@ -1,0 +1,16 @@
+Debris that has exited orbit:
+ID: 23097 | Name: USA 103 | Country: US | Orbit: Unknown Orbit Category | Year: 1994 | Site: AFETR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "28.4917337 | Days Old: 0
+ID: 29210 | Name: SCOUT G-1 DEB | Country: US | Orbit: LEO | Year: 1987 | Site: AFWTR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "34.742221 | Days Old: 0
+ID: 31518 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Lon: 0.00 | AvgLon: 0.00 | Geohash: "38.849086 | Days Old: 0
+ID: 32558 | Name: DELTA 4H DEB | Country: US | Orbit: Unknown Orbit Category | Year: 2007 | Site: AFETR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "28.4917337 | Days Old: 0
+ID: 46525 | Name: FREGAT DEB | Country: CIS | Orbit: LEO | Year: 2011 | Site: TTMTR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "45.965 | Days Old: 0
+ID: 50802 | Name: COSMOS 2499 DEB | Country: CIS | Orbit: LEO | Year: 2014 | Site: PKMTR | Lon: 0.00 | AvgLon: 84.38 | Geohash: "62.925556 | Days Old: 0
+ID: 61354 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2024 | Site: TSC | Lon: 0.00 | AvgLon: 32.23 | Geohash: "38.849086 | Days Old: 0
+ID: 61819 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2024 | Site: TSC | Lon: 0.00 | AvgLon: 22.60 | Geohash: "38.849086 | Days Old: 0
+ID: 41009 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Lon: 0.00 | AvgLon: 0.00 | Geohash: "38.849086 | Days Old: 0
+ID: 40862 | Name: CZ-3C DEB | Country: PRC | Orbit: HEO | Year: 2012 | Site: XSC | Lon: 0.00 | AvgLon: 0.00 | Geohash: "28.246017 | Days Old: 0
+ID: 48539 | Name: SL-12 DEB | Country: CIS | Orbit: HEO | Year: 2008 | Site: TTMTR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "45.965 | Days Old: 0
+ID: 52967 | Name: ATLAS 5 CENTAUR DEB | Country: US | Orbit: HEO | Year: 2018 | Site: AFETR | Lon: 0.00 | AvgLon: 0.00 | Geohash: "28.4917337 | Days Old: 0
+
+Total still in orbit: 86
+Total exited: 12
