@@ -20,7 +20,7 @@ import src.MissionControl;
  */
 public class CSVFileReader {
     private final Map<String, List<SpaceObject>> spaceObjectsMap = new HashMap<>();
-    private final String filePath = "resources\\rso_metrics.csv";
+    private final String filePath = "resources/rso_metrics.csv";
 
     //column headers: 
     // record_id,norad_cat_id,satellite_name,country,
