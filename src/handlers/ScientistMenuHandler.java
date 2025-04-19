@@ -45,13 +45,13 @@ public class ScientistMenuHandler implements UserMenuHandler {
     }
 
     private Map<String, Runnable> scientistActions = Map.of(
-    "1", () -> control.performTracking(),
-    "2", () -> control.accessOrbitalStatus(),
-    "0", () -> {
-            System.out.println("Returning to Main Menu...");
-            control.logActivity("Return to Main menu from Scientist Menu");
-            exitCallback.run();
-        }
+        "1", () -> control.trackObjects(),
+        "2", () -> control.accessOrbitalStatus(),
+        "0", () -> {
+                System.out.println("Returning to Main Menu...");
+                control.logActivity("Return to Main menu from Scientist Menu");
+                exitCallback.run();
+            }
     );
         //javadoc comment goes here
     /**

@@ -51,7 +51,7 @@ public class MissionControl {
         // trackingSystem.trackByType();
     }
 
-    /**Space Agency Representative option: Retrieves all objects in Low Earth Orbit (LEO) */
+    /**Scientist option: Retrieves all objects in Low Earth Orbit (LEO) */
     public Object accessOrbitalStatus() {
         logger.logActivity("Accessing orbital status of space objects...");
         return trackingSystem.getAllInLEO();    
@@ -75,7 +75,7 @@ public class MissionControl {
         System.out.println("2. Debris");
         System.out.println("3. Payload");
         System.out.println("4. Unknown");
-        System.out.println("5. Back");
+        System.out.println("x. Back");
         System.out.print("Choice: ");
         String choice = scanner.nextLine().trim();
 
@@ -93,8 +93,8 @@ public class MissionControl {
             case "4":
                 type = "UNKNOWN";
                 break;
-            case "5":
-                logger.log("Scientist returned to previous menu from 'Track Objects'.");
+            case "x":
+                logger.logActivity("Scientist returned to previous menu from 'Track Objects'.");
                 return;
             default:
                 System.out.println("Invalid option. Please try again.");
@@ -105,7 +105,7 @@ public class MissionControl {
 
         if (filtered.isEmpty()) {
             System.out.println("No objects found of type: " + type);
-            logger.log("Scientist searched for " + type + " objects — none found.");
+            logger.logActivity("Scientist searched for " + type + " objects — none found.");
         } else {
             System.out.println("\n--- " + type + " Objects ---");
             for (SpaceObject obj : filtered) {
@@ -115,7 +115,7 @@ public class MissionControl {
                     obj.longitude, obj.avgLongitude, obj.geohash, obj.daysOld
                 );
             }
-            logger.log("Scientist viewed " + filtered.size() + " " + type + " object(s).");
+            logger.logActivity("Scientist viewed " + filtered.size() + " " + type + " object(s).");
         }
     }
 }

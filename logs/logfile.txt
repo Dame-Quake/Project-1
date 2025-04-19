@@ -8,3 +8,35 @@
 [2025-04-18 00:59:31] Accessing orbital status of space objects...
 [2025-04-18 00:59:42] User Damian (Scientist) input: 0
 [2025-04-18 00:59:42] Return to Main menu from Scientist Menu
+[2025-04-18 11:12:02] User logged in: damian (Scientist)
+[2025-04-18 11:12:06] User damian (Scientist) input: 1
+[2025-04-18 11:12:06] Performing tracking of space objects by type...
+[2025-04-18 12:13:45] User damian (Scientist) input: 1
+[2025-04-18 12:13:45] Performing tracking of space objects by type...
+[2025-04-18 12:14:57] User damian (Scientist) input: 0
+[2025-04-18 12:14:57] Return to Main menu from Scientist Menu
+[2025-04-18 17:28:23] User logged in: damian (Scientist)
+[2025-04-18 17:28:24] User damian (Scientist) input: 1
+[2025-04-18 17:28:24] Performing tracking of space objects by type...
+[2025-04-18 17:28:59] User damian (Scientist) input: 2
+[2025-04-18 17:28:59] Accessing orbital status of space objects...
+[2025-04-18 17:29:01] User damian (Scientist) input: 0
+[2025-04-18 17:29:01] Return to Main menu from Scientist Menu
+[2025-04-18 17:30:21] User logged in: damian (Scientist)
+[2025-04-18 17:30:22] User damian (Scientist) input: 1
+[2025-04-18 17:30:22] Tracking all registered space objects...
+[2025-04-18 17:30:26] Scientist searched for ROCKET BODY objects — none found.
+[2025-04-18 17:30:29] Scientist searched for DEBRIS objects — none found.
+[2025-04-18 17:30:32] Scientist returned to previous menu from 'Track Objects'.
+[2025-04-18 17:30:35] User damian (Scientist) input: 0
+[2025-04-18 17:30:35] Return to Main menu from Scientist Menu
+[2025-04-18 17:30:38] User logged in: damian (Space_Agency_Representative)
+[2025-04-18 17:30:45] User logged in: damian (Scientist)
+[2025-04-18 17:30:47] User damian (Scientist) input: 2
+[2025-04-18 17:30:47] Accessing orbital status of space objects...
+[2025-04-18 17:30:49] User damian (Scientist) input: 1
+[2025-04-18 17:30:49] Tracking all registered space objects...
+[2025-04-18 17:30:53] Scientist searched for UNKNOWN objects — none found.
+[2025-04-18 17:30:58] Scientist returned to previous menu from 'Track Objects'.
+[2025-04-18 17:31:02] User damian (Scientist) input: 0
+[2025-04-18 17:31:02] Return to Main menu from Scientist Menu

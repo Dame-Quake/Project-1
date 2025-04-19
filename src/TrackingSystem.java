@@ -26,7 +26,7 @@ public class TrackingSystem {
                 filtered.add(obj);
             } else if (obj instanceof Payload && type.equalsIgnoreCase("PAYLOAD")) {
                 filtered.add(obj);
-            } else if (obj instanceof Satellite && type.equalsIgnoreCase("ROCKET BODY")) {
+            } else if (obj instanceof RocketBody && type.equalsIgnoreCase("ROCKET BODY")) {
                 filtered.add(obj);
             } else if (obj instanceof Unknown && type.equalsIgnoreCase("UNKNOWN")) {
                 filtered.add(obj);
