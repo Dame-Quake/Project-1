@@ -96,6 +96,8 @@ public class MissionControl {
                 }
 
             } else if (input.equals("2")) {
+                new File("output").mkdirs(); // Creates the output folder if missing
+
                 List<SpaceObject> exitedDebris = new ArrayList<>();
 
                 try (FileWriter csvOut = new FileWriter("output/assessed_orbit_status.csv");
