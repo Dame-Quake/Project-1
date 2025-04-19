@@ -8,17 +8,32 @@ package src;
  * </p>
  */
 public abstract class SpaceObject {
-    protected String recordID;
-    protected String name;
-    protected String country;
-    protected String orbitType;
-    protected int launchYear;
+    protected int recordID ;
+    protected int noradCatID ;
+    protected String satelliteName ;
+    protected String country ;
+    protected String approximate_orbitType ;
+    protected String objectType ;
+    protected int launchYear ;
     protected String launchSite;
-    protected double longitude;
-    protected double avgLongitude;
-    protected String geohash;
+    protected Double longitude;
+    protected Double avgLongitude;
+    protected String geohash ;
+    protected String HRR_Category ;
+    protected boolean isNominated;
+    protected String nominatedAt ;
+    protected boolean hasDossier;
+    protected String lastUpdatedAt ;
+    protected String justification ;
+    protected String focusedAnalysis ;
     protected int daysOld;
     protected int conjunctionCount;
+    protected boolean isUnkObject;
+    protected String allManeuvers ;
+    protected String daysSinceOb ;
+    protected String recentManeuvers ;
+    protected String deltaV90Day ;
+    protected boolean hasSisterDebris;
 
     public abstract String getInfo();  
 }

@@ -39,7 +39,7 @@ public class TrackingSystem {
     public List<SpaceObject> getAllInLEO(){
         List<SpaceObject> inLEO = new ArrayList<>();
         for (SpaceObject obj : objects) {
-            if (obj.orbitType != null && obj.orbitType.equalsIgnoreCase("LEO")) {
+            if (obj.approximate_orbitType != null && obj.approximate_orbitType.equalsIgnoreCase("LEO")) {
                 inLEO.add(obj);
             }
         }

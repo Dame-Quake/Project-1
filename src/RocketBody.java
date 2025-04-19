@@ -12,6 +12,6 @@ public class RocketBody extends SpaceObject {
      */
     @Override
     public String getInfo(){
-        return "Rockey Body: " + name;
+        return "Rockey Body: " + satelliteName;
     }
 }

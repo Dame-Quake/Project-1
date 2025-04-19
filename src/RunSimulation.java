@@ -3,6 +3,10 @@ package src;
 import src.enums.Role;
 import src.handlers.ScientistMenuHandler;
 import src.interfaces.UserMenuHandler;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -33,7 +37,15 @@ public class RunSimulation {
      * Constructs a new {@code RunSimulation} instance and initializes the mission control system.
      */
     public RunSimulation() {
-        this.control = new MissionControl(new TrackingSystem());
+        try {
+            CSVFileReader reader = new CSVFileReader();
+            Map<String, List<SpaceObject>> loadedObjects = reader.readCSVFile();
+            this.control = new MissionControl(new TrackingSystem(), loadedObjects);
+        } catch (IOException e) {
+            System.err.println("Failed to load space object data: " + e.getMessage());
+            System.exit(1); // terminate early if data fails to load
+        }
+
         this.logger = new LogFile("logs\\logfile.txt");
         this.control.setLogger(logger);
         this.scanner = new Scanner(System.in);

@@ -11,10 +11,10 @@ public class Debris extends SpaceObject {
      * or passed through a more complete constructor if implemented.
      */
     public Debris(){
-        this.name = name; 
+        this.satelliteName = satelliteName; 
         this.recordID = recordID;
         this.country = country;
-        this.orbitType = orbitType;
+        this.approximate_orbitType = approximate_orbitType;
         this.launchYear = launchYear;
         this.launchSite = launchSite;
         this.longitude = longitude;
@@ -31,7 +31,17 @@ public class Debris extends SpaceObject {
      */
     @Override
     public String getInfo(){
-        return "Debris: " + name;
+        return "Debris: " + satelliteName + 
+               ", NORAD ID: " + noradCatID + 
+               ", Country: " + country + 
+               ", Orbit Type: " + approximate_orbitType + 
+               ", Launch Year: " + launchYear + 
+               ", Launch Site: " + launchSite +
+               ", Longitude: " + longitude +
+               ", Avg Longitude: " + avgLongitude +
+               ", Geohash: " + geohash +
+               ", Days Old: " + daysOld +
+               ", Conjunction Count: " + conjunctionCount;
     }
 }
 

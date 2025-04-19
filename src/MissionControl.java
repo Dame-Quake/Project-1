@@ -11,8 +11,8 @@ import java.io.*;
  */
 public class MissionControl {
     
-    /** List of space objects being tracked.*/
-    private List<SpaceObject> objects = new ArrayList<>();
+    /** Dictionary of space objects being tracked.*/
+    private Map<String, List<SpaceObject>> spaceObjectsByType;
     /** The current user of the system.*/
     private User currentUser;
     /** The path to the log file.*/
@@ -28,8 +28,9 @@ public class MissionControl {
      * @param trackingSystem the tracking system to be used by this controller
      */
 
-    public MissionControl(TrackingSystem trackingSystem){
+    public MissionControl(TrackingSystem trackingSystem, Map<String, List<SpaceObject>> loadedObjects){
         this.trackingSystem = trackingSystem;
+        this.spaceObjectsByType = loadedObjects;
     }
 
     /**Sets the user currently interacting with the system */
@@ -62,6 +63,21 @@ public class MissionControl {
         logger.logActivity("Loading external data into the system...");
         //Implementation of data loading logic
 
+    }
+
+    /**Retrieves all space objects of a specific type from the system
+     * @param type the type of space object to retrieve
+     * @return a list of space objects of the specified type
+     */
+    public List<SpaceObject> getObjectByType(String type){
+        return spaceObjectsByType.getOrDefault(type.toUpperCase(), new ArrayList<>());
+    }
+    
+    /**Retrieves all space objects from the system
+     * @return a list of all space objects
+     */
+    public Map<String, List<SpaceObject>> getAllObjectsMap() {
+        return spaceObjectsByType;
     }
 
     /**Tracks all registered space objects in the system */
@@ -111,7 +127,7 @@ public class MissionControl {
             for (SpaceObject obj : filtered) {
                 System.out.printf(
                     "ID: %s | Name: %s | Country: %s | Orbit: %s | Year: %d | Site: %s | Lon: %.2f | AvgLon: %.2f | Geohash: %s | Days Old: %d%n",
-                    obj.recordID, obj.name, obj.country, obj.orbitType, obj.launchYear, obj.launchSite,
+                    obj.recordID, obj.satelliteName, obj.country, obj.approximate_orbitType, obj.launchYear, obj.launchSite,
                     obj.longitude, obj.avgLongitude, obj.geohash, obj.daysOld
                 );
             }
